@@ -2,5 +2,4 @@
 *.iws
 *.ipr
 target
-.idea/
 .DS_Store
