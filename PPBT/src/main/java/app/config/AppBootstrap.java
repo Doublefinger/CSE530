@@ -1,8 +1,8 @@
 package app.config;
 
+import app.services.ServiceModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.sfs.services.ServiceModule;
 import org.javalite.activeweb.AppContext;
 import org.javalite.activeweb.Bootstrap;
 import org.springframework.context.ApplicationContext;
