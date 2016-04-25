@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="ppbtDataSourceConfig" class="com.zaxxer.hikari.HikariConfig">
+        <property name="poolName" value="springHikariCP"/>
+        <property name="connectionTestQuery" value="SELECT 1"/>
+        <property name="dataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"/>
+        <property name="maximumPoolSize" value="50"/>
+
+        <property name="dataSourceProperties">
+            <props>
+                <prop key="url">${PPBT_DB_URL}</prop>
+                <prop key="user">${PPBT_DB_USERNAME}</prop>
+                <prop key="password">${PPBT_DB_PASSWORD}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="crmDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <constructor-arg ref="ppbtDataSourceConfig"/>
+    </bean>
+</beans>

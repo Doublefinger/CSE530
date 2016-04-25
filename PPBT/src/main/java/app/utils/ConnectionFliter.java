@@ -17,7 +17,7 @@ public class ConnectionFliter extends ControllerFilterAdapter {
     public void before() {
         DB db = new DB("default");
         try {
-            DataSource crmDataSource = SpringContextHolder.getBean("crmDataSource");
+            DataSource crmDataSource = SpringContextHolder.getBean("ppbtDataSource");
             db.attach(crmDataSource.getConnection());
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <context:annotation-config></context:annotation-config>
+
+    <import resource="dao.xml"/>
+
+    <bean class="app.services.SpringContextHolder" lazy-init="false"/>
+
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <value>
+                resource.loader=class
+                class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+            </value>
+        </property>
+    </bean>
+
+    <bean id="httpClientFactory" class="org.springframework.http.client.SimpleClientHttpRequestFactory">
+        <property name="connectTimeout" value="10000"/>
+        <property name="readTimeout" value="10000"/>
+    </bean>
+
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <constructor-arg ref="httpClientFactory"/>
+    </bean>
+
+
+    <!--<bean id="batchService" class="app.services.BatchService"/>-->
+
+    <!--<bean class="app.SiteVersionHolder"/>-->
+
+    <bean class="app.services.PlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>dummy.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <task:executor id="executor" pool-size="10"/>
+</beans>
