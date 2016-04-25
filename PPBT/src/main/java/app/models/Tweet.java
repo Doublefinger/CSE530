@@ -5,6 +5,6 @@ import org.javalite.activejdbc.Model;
 /**
  * Created by Doublefinger on 3/22/16.
  */
-public class Candidate extends Model{
+public class Tweet extends Model{
 
 }
