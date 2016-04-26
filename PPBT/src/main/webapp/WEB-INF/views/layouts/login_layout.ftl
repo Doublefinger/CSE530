@@ -9,9 +9,7 @@
 
 </head>
 <body class="skin-blue">
-
         ${page_content}
-
 </body>
 
 </html>

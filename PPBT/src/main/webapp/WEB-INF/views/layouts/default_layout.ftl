@@ -16,10 +16,10 @@
     <meta name='handheldFriendly' content='true'/>
     <meta name='apple-mobile-web-app-capable' content='yes'/>
     <meta name='apple-mobile-web-app-status-bar-style' content='black'/>
-    <@yield to="css_define_default"/>
-    <link rel="stylesheet" type="text/css" href="/Public/dist/styles/layout_lib.css?t=${static_resource_version!}"/>
-    <@yield to="css_define"/>
-    <@yield to="js_define_head"/>
+    <#--<@yield to="css_define_default"/>-->
+    <#--<link rel="stylesheet" type="text/css" href="/Public/dist/styles/layout_lib.css?t=${static_resource_version!}"/>-->
+    <#--<@yield to="css_define"/>-->
+    <#--<@yield to="js_define_head"/>-->
 </head>
 
 <body>
