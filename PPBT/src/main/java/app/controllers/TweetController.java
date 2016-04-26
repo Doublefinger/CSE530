@@ -16,38 +16,42 @@ import java.util.regex.Pattern;
  */
 public class TweetController extends BaseController {
     public void getCount() {
-        Map<Integer, Integer> result = new HashMap<>();
-        int[] candidates = CandidateHelper.convert(param("candidates"));
+        Map<String, Integer> result = new HashMap<>();
+        String candidateIndice = param("candidates");
+        String[] candidates = CandidateHelper.convert(candidateIndice);
         for (int i = 0; i < candidates.length; i++) {
-            result.put(candidates[i], Tweet.count("candidate = ?", candidates[i]).intValue());
+            result.put(candidates[i], Tweet.count("candidate = ?",  Character.getNumericValue(candidateIndice.charAt(i))).intValue());
         }
         respond(JsonHelper.fromMap(result));
     }
 
     public void getCountByRetweetCount() {
-        Map<Integer, Integer> result = new HashMap<>();
-        int[] candidates = CandidateHelper.convert(param("candidates"));
+        Map<String, Integer> result = new HashMap<>();
+        String candidateIndice = param("candidates");
+        String[] candidates = CandidateHelper.convert(candidateIndice);
         for (int i = 0; i < candidates.length; i++) {
-            result.put(candidates[i], Tweet.count("candidate = ? and retweet_count >= 100", candidates[i]).intValue());
+            result.put(candidates[i], Tweet.count("candidate = ? and retweet_count >= 100",  Character.getNumericValue(candidateIndice.charAt(i))).intValue());
         }
         respond(JsonHelper.fromMap(result));
     }
 
     public void getCountByVerfied() {
-        Map<Integer, Integer> result = new HashMap<>();
-        int[] candidates = CandidateHelper.convert(param("candidates"));
+        Map<String, Integer> result = new HashMap<>();
+        String candidateIndice = param("candidates");
+        String[] candidates = CandidateHelper.convert(candidateIndice);
         for (int i = 0; i < candidates.length; i++) {
-            result.put(candidates[i], Tweet.count("candidate = ? and (retweeted != 0 or favorited != 0)", candidates[i]).intValue());
+            result.put(candidates[i], Tweet.count("candidate = ? and (retweeted != 0 or favorited != 0)",  Character.getNumericValue(candidateIndice.charAt(i))).intValue());
         }
         respond(JsonHelper.fromMap(result));
     }
 
     public void getPlace() {
-        Map<Integer, Map<String, Integer>> result = new HashMap<>();
-        int[] candidates = CandidateHelper.convert(param("candidates"));
+        Map<String, Map<String, Integer>> result = new HashMap<>();
+        String candidateIndice = param("candidates");
+        String[] candidates = CandidateHelper.convert(candidateIndice);
         Pattern p = Pattern.compile("\'([^\']+)\'");
         for (int i = 0; i < candidates.length; i++) {
-            List<Tweet> list = Tweet.find("candidate = ? and place != \"\"", candidates[i]);
+            List<Tweet> list = Tweet.find("candidate = ? and place != \"\"", Character.getNumericValue(candidateIndice.charAt(i)));
             Map<String, Integer> tempMap = new HashMap<>();
             for (Tweet t : list) {
                 String place = t.getString("place");
