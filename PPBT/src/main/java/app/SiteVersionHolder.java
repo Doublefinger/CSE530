@@ -1,4 +1,4 @@
-package app.utils;
+package app;
 
 /**
  * Created by xiezhongsheng on 14-6-17.

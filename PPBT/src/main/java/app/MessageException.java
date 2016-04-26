@@ -1,4 +1,4 @@
-package app.utils;
+package app;
 
 /**
  * Created by baby on 15/10/10.

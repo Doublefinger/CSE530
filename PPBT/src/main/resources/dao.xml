@@ -19,7 +19,7 @@
         </property>
     </bean>
 
-    <bean id="crmDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+    <bean id="ppbtDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
         <constructor-arg ref="ppbtDataSourceConfig"/>
     </bean>
 </beans>

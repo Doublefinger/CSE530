@@ -3,7 +3,7 @@ package app.config;
 import org.apache.commons.collections.map.ListOrderedMap;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.configuration.reloading.FileChangedReloadingStrategy;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import java.math.BigDecimal;
 import java.util.Iterator;

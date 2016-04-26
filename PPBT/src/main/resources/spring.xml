@@ -11,14 +11,14 @@
 
     <bean class="app.services.SpringContextHolder" lazy-init="false"/>
 
-    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
-        <property name="velocityProperties">
-            <value>
-                resource.loader=class
-                class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
-            </value>
-        </property>
-    </bean>
+    <!--<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">-->
+        <!--<property name="velocityProperties">-->
+            <!--<value>-->
+                <!--resource.loader=class-->
+                <!--class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader-->
+            <!--</value>-->
+        <!--</property>-->
+    <!--</bean>-->
 
     <bean id="httpClientFactory" class="org.springframework.http.client.SimpleClientHttpRequestFactory">
         <property name="connectTimeout" value="10000"/>
@@ -32,7 +32,7 @@
 
     <!--<bean id="batchService" class="app.services.BatchService"/>-->
 
-    <!--<bean class="app.SiteVersionHolder"/>-->
+    <bean class="app.SiteVersionHolder"/>
 
     <bean class="app.services.PlaceholderConfigurer">
         <property name="locations">

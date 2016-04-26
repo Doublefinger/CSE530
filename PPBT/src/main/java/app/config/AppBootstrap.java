@@ -1,8 +1,5 @@
 package app.config;
 
-import app.services.ServiceModule;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
 import org.javalite.activeweb.AppContext;
 import org.javalite.activeweb.Bootstrap;
 import org.springframework.context.ApplicationContext;
@@ -19,9 +16,9 @@ public class AppBootstrap extends Bootstrap {
         context.set("spring", new ClassPathXmlApplicationContext("spring.xml"));
     }
 
-    protected Injector getInjector() {
-        return Guice.createInjector(new ServiceModule());
-    }
+//    protected Injector getInjector() {
+//        return Guice.createInjector(new ServiceModule());
+//    }
 
     @Override
     public void destroy(AppContext context) {
