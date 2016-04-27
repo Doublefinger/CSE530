@@ -8,17 +8,14 @@ import org.javalite.activeweb.controller_filters.ControllerFilterAdapter;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 
-/**
- * Created by baby on 15/5/25.
- */
-public class ConnectionFliter extends ControllerFilterAdapter {
+public class ConnectionFilter extends ControllerFilterAdapter {
 
     @Override
     public void before() {
         DB db = new DB("default");
         try {
-            DataSource crmDataSource = SpringContextHolder.getBean("ppbtDataSource");
-            db.attach(crmDataSource.getConnection());
+            DataSource ppbtDataSource = SpringContextHolder.getBean("ppbtDataSource");
+            db.attach(ppbtDataSource.getConnection());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

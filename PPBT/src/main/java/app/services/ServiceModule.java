@@ -5,7 +5,9 @@ import com.google.inject.AbstractModule;
 /**
  * Created by Doublefinger on 1/7/16.
  * <p/>
- * 定义所有Dependency Injection的关系
+ * Define Dependency Injections
+ *
+ * not being used in this project
  */
 public class ServiceModule extends AbstractModule {
     protected void configure() {

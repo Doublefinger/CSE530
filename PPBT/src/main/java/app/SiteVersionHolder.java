@@ -1,8 +1,5 @@
 package app;
 
-/**
- * Created by xiezhongsheng on 14-6-17.
- */
 public class SiteVersionHolder {
 
     private String siteEnv;

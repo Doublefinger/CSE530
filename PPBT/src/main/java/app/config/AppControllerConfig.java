@@ -1,6 +1,6 @@
 package app.config;
 
-import app.ConnectionFliter;
+import app.ConnectionFilter;
 import app.controllers.authorization.AuthorizationFilter;
 import org.javalite.activeweb.AbstractControllerConfig;
 import org.javalite.activeweb.AppContext;
@@ -12,6 +12,6 @@ import org.javalite.activeweb.AppContext;
 public class AppControllerConfig extends AbstractControllerConfig {
     @Override
     public void init(AppContext context) {
-        addGlobalFilters(new AuthorizationFilter(), new ConnectionFliter());
+        addGlobalFilters(new AuthorizationFilter(), new ConnectionFilter());
     }
 }

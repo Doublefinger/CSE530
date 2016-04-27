@@ -7,9 +7,6 @@ import org.springframework.core.io.Resource;
 
 import java.io.File;
 
-/**
- * Created by baby on 15/3/19.
- */
 public class PlaceholderConfigurer extends PropertyPlaceholderConfigurer {
 
     private static final String SYSTEM_ENV_CONFIG_PATH = System.getenv("PPBT_ENVIRONMENTS_FILE");
