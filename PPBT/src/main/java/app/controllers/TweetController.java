@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.controllers.authorization.Protected;
 import app.models.Tweet;
 import app.utils.AmericanStates;
 import app.utils.CandidateHelper;
@@ -14,6 +15,8 @@ import java.util.regex.Pattern;
 /**
  * Created by Doublefinger on 4/25/16.
  */
+
+@Protected
 public class TweetController extends BaseController {
     public void getCount() {
         Map<String, Integer> result = new HashMap<>();
@@ -26,16 +29,18 @@ public class TweetController extends BaseController {
     }
 
     public void getCountByRetweetCount() {
+        String count = param("count");
         Map<String, Integer> result = new HashMap<>();
         String candidateIndice = param("candidates");
         String[] candidates = CandidateHelper.convert(candidateIndice);
         for (int i = 0; i < candidates.length; i++) {
-            result.put(candidates[i], Tweet.count("candidate = ? and retweet_count >= 100",  Character.getNumericValue(candidateIndice.charAt(i))).intValue());
+            result.put(candidates[i], Tweet.count("candidate = ? and retweet_count >= ?",
+                    Character.getNumericValue(candidateIndice.charAt(i)), Integer.parseInt(count)).intValue());
         }
         respond(JsonHelper.fromMap(result));
     }
 
-    public void getCountByVerfied() {
+    public void getCountByVerified() {
         Map<String, Integer> result = new HashMap<>();
         String candidateIndice = param("candidates");
         String[] candidates = CandidateHelper.convert(candidateIndice);
