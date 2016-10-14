@@ -9,5 +9,3 @@ I actually deploy this project online using Heroku, check it at:
 http://enigmatic-lake-52722.herokuapp.com/
 
 Note: I temporarily disable the corresponding DataBase.
-
-Some screenshots of the website are available in Wiki. 
